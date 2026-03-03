@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Plain | WhatsApp Order Management</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007AFF", // Updated to a Notion-like clean blue for the 'Plain' brand
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#191919",
+                        "border-light": "#E0E0E0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Public Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .notion-border {
+            border: 1px solid #E0E0E0;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+    <!-- Navigation -->
+    <header
+        class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-border-light dark:border-slate-800">
+        <div class="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center">
+                <img alt="Plain Logo" class="h-8 w-auto dark:bg-white dark:p-1 dark:rounded-sm" src="./logo.png" />
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">Features</a>
+                <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">Pricing</a>
+                <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">About</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button class="text-sm font-medium px-4 py-2 rounded hover:bg-slate-100 transition-colors">Log
+                    in</button>
+                <button
+                    class="bg-primary text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm hover:opacity-90 transition-all">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/qr/LCJMBZEJPIHQJ1" target="_blank" rel="noopener noreferrer"
+        aria-label="Contact us on WhatsApp" aria-label="Contact us on WhatsApp"
+        class="fixed right-5 bottom-12 z-50 group flex flex-col items-center gap-1">
+        <!-- Icon circle -->
+        <span
+            class="flex items-center justify-center w-12 h-12 rounded-full shadow-lg transition-transform group-hover:scale-110"
+            style="background:#25D366;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7" fill="none">
+                <path fill="#fff"
+                    d="M16 2C8.268 2 2 8.268 2 16c0 2.49.65 4.826 1.787 6.86L2 30l7.34-1.762A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.44 11.44 0 0 1-5.83-1.596l-.418-.249-4.356 1.045 1.072-4.244-.272-.436A11.46 11.46 0 0 1 4.5 16C4.5 9.648 9.648 4.5 16 4.5S27.5 9.648 27.5 16 22.352 27.5 16 27.5z" />
+                <path fill="#25D366"
+                    d="M22.003 18.923c-.332-.166-1.963-.968-2.267-1.079-.304-.11-.525-.166-.746.167s-.856 1.079-1.05 1.3c-.193.22-.387.248-.718.083-.332-.166-1.4-.516-2.667-1.645-.985-.878-1.65-1.963-1.843-2.295-.194-.332-.021-.511.145-.677.15-.149.332-.387.498-.58.166-.194.22-.333.332-.554.11-.222.055-.415-.028-.581-.083-.166-.746-1.798-1.022-2.462-.27-.647-.543-.56-.746-.57l-.636-.01c-.22 0-.58.082-.883.415-.304.332-1.16 1.133-1.16 2.763 0 1.63 1.188 3.205 1.354 3.427.165.221 2.34 3.573 5.67 5.01.793.342 1.41.547 1.892.7.795.254 1.52.218 2.092.132.638-.095 1.963-.803 2.24-1.578.276-.775.276-1.44.193-1.578-.083-.139-.304-.222-.636-.388z" />
+            </svg>
+        </span>
+        <!-- Tooltip label -->
+        <span
+            class="text-[10px] font-semibold text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity bg-white dark:bg-slate-800 px-1.5 py-0.5 rounded shadow text-center whitespace-nowrap">WhatsApp</span>
+    </a>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-16 md:pt-24 pb-16 md:pb-20 px-4 sm:px-6">
+            <div class="max-w-[800px] mx-auto text-center">
+                <h1
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 font-display">
+                    Social Media Order &amp; Customer Support Platform
+                </h1>
+                <p
+                    class="text-base sm:text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed mb-10 max-w-[600px] mx-auto">
+                    Organize your social media sales and customer support with a minimalist workspace designed for
+                    clarity
+                    and speed.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button
+                        class="w-full sm:w-auto bg-primary text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:translate-y-[-1px] transition-all">
+                        Start Free Trial
+                    </button>
+                    <a href="https://calendly.com/contact-plainco/30min" target="_blank" rel="noopener noreferrer"
+                        class="inline-block text-center w-full sm:w-auto border border-border-light dark:border-slate-700 bg-white dark:bg-transparent text-slate-700 dark:text-slate-200 font-semibold px-8 py-3 rounded-lg hover:bg-slate-50 transition-all">
+                        View Demo
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Product Preview -->
+        <section class="px-6 pb-24">
+            <div class="max-w-[1000px] mx-auto">
+                <div class="rounded-2xl border border-border-light dark:border-slate-800 shadow-xl overflow-hidden">
+                    <img src="./ui.png" alt="Plain — Clean Dashboard Interface showing WhatsApp order management"
+                        class="w-full h-auto block"
+                        style="max-height: 540px; object-fit: cover; object-position: top;" />
+                </div>
+                <p class="text-center text-sm text-slate-400 mt-4">Clean Dashboard Interface &mdash; built for speed and
+                    clarity</p>
+            </div>
+        </section>
+
+
+        <!-- Features Grid -->
+        <section class="py-24 px-6 border-t border-border-light dark:border-slate-800 bg-slate-50/30">
+            <div class="max-w-[1000px] mx-auto">
+                <div class="mb-16">
+                    <span class="text-primary font-bold text-xs uppercase tracking-widest mb-4 block">Built for Real
+                        Business Workflows</span>
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">Designed for
+                        Commercial Use</h2>
+                    <p class="text-slate-500 max-w-[600px] text-lg">Our platform scales with your business, providing
+                        the tools needed for professional order management.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Feature Card -->
+                    <div
+                        class="bg-white dark:bg-slate-900 p-8 rounded-xl border border-border-light dark:border-slate-800 hover:shadow-lg transition-shadow">
+                        <div class="text-primary mb-6">
+                            <span class="material-symbols-outlined text-3xl">chat_bubble</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 text-slate-900 dark:text-white">Unified Inbox</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">All social media messages
+                            in
+                            one place, allowing your team to respond faster and more efficiently.</p>
+                    </div>
+                    <!-- Feature Card -->
+                    <div
+                        class="bg-white dark:bg-slate-900 p-8 rounded-xl border border-border-light dark:border-slate-800 hover:shadow-lg transition-shadow">
+                        <div class="text-primary mb-6">
+                            <span class="material-symbols-outlined text-3xl">package_2</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 text-slate-900 dark:text-white">Order Tracking</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Real-time status updates
+                            for every sale. Keep track of what's shipped, pending, or completed.</p>
+                    </div>
+                    <!-- Feature Card -->
+                    <div
+                        class="bg-white dark:bg-slate-900 p-8 rounded-xl border border-border-light dark:border-slate-800 hover:shadow-lg transition-shadow">
+                        <div class="text-primary mb-6">
+                            <span class="material-symbols-outlined text-3xl">groups</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2 text-slate-900 dark:text-white">Customer CRM</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Detailed customer history
+                            and notes. Build lasting relationships with integrated customer profiles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Simple Workflow Section -->
+        <section class="py-24 px-6">
+            <div class="max-w-[1000px] mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-16">
+                    <!-- Image Side -->
+                    <div class="w-full md:w-1/2 flex items-center justify-center">
+                        <div
+                            class="rounded-2xl border border-border-light dark:border-slate-800 shadow-sm overflow-hidden bg-white dark:bg-slate-900 w-full flex items-center justify-center p-4">
+                            <img src="./workflow.png"
+                                alt="Plain Simple Workflow — from initial inquiry to automated delivery notifications"
+                                class="w-full h-auto block object-contain" style="max-height: 400px;" />
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">Simple
+                            Workflow</h2>
+                        <p class="text-lg text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
+                            From initial inquiry to final delivery, Plain keeps your team aligned and your customers
+                            happy. No clutter, just the data you need.
+                        </p>
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                <span>Instant message categorization</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                <span>One-click order generation</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                <span>Automated delivery notifications</span>
+                            </li>
+                        </ul>
+                        <button
+                            class="bg-primary text-white font-semibold px-6 py-2.5 rounded-lg hover:opacity-90 transition-all">
+                            Learn more
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section
+            class="py-16 md:py-24 px-4 sm:px-6 bg-slate-50 dark:bg-slate-950 border-y border-border-light dark:border-slate-900">
+            <div class="max-w-[800px] mx-auto text-center">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-6">Ready to simplify your sales?
+                </h2>
+                <p class="text-xl text-slate-500 mb-10">Join 500+ businesses managing orders through Plain.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button
+                        class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-bold px-10 py-4 rounded-xl shadow-lg hover:scale-105 transition-all">
+                        Get Started for Free
+                    </button>
+                </div>
+                <p class="mt-6 text-sm text-slate-400">No credit card required • 14-day free trial</p>
+            </div>
+        </section>
+    </main>
+    <footer class="py-12 px-6 border-t border-border-light dark:border-slate-800">
+        <div
+            class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 text-center md:text-left">
+            <div class="flex items-center">
+                <img alt="Plain Logo" class="h-6 w-auto dark:bg-white dark:p-1 dark:rounded-sm" src="./logo.png" />
+            </div>
+            <div class="flex gap-8">
+                <a class="text-sm text-slate-400 hover:text-slate-600" href="#">Privacy</a>
+                <a class="text-sm text-slate-400 hover:text-slate-600" href="#">Terms</a>
+                <a class="text-sm text-slate-400 hover:text-slate-600"
+                    href="https://www.instagram.com/plain.tecs?igsh=MWVpbGw3NXYzNnkzeA%3D%3D&utm_source=qr"
+                    target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a class="text-sm text-slate-400 hover:text-slate-600" href="mailto:contact.plainco@gmail.com"
+                    target="_blank">Contact</a>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-sm text-slate-400">© 2026 Plain Tecs Enterprise</p>
+                <p class="text-xs text-slate-300 mt-1">Company Registration No. 202603059618</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
